@@ -81,16 +81,21 @@ function CoursesContent() {
             <p className="max-w-[530px] text-sm leading-7 text-muted">Mais do que aprender passos, você vai compreender escolhas. Cursos pensados para quem deseja se maquiar com autonomia ou evoluir profissionalmente, com orientação próxima, prática e atenção aos detalhes.</p>
             <div className="mt-8 flex flex-wrap gap-3"><a className="button button-dark" href="#formacao">Conheça os cursos <ArrowDownRight size={17}/></a><a className="button border border-[#9f8580] text-ink" href="#interesse">Quero conversar <MessageCircle size={16}/></a></div>
           </div>
-          <div data-reveal className="relative min-h-[340px] aspect-[1.45/1] overflow-hidden bg-[#d4b8b2]">
-            <Image
-              src="/images/cursos-hero.jpg"
-              alt="Aula prática de maquiagem: Larissa ensinando a aplicação de maquiagem em uma aluna"
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 45vw"
-              className="object-cover object-center"
-            />
-          </div>
+          
+<div
+  data-reveal
+  className="relative mx-auto aspect-[4/5] w-full max-w-[520px] overflow-hidden bg-[#d4b8b2] md:mx-0"
+>
+  <Image
+    src="/images/cursos-hero.jpg"
+    alt="Aula prática de maquiagem: Larissa ensinando a aplicação de maquiagem em uma aluna"
+    fill
+    priority
+    sizes="(max-width: 768px) 90vw, 42vw"
+    className="object-cover object-[center_35%] transition-transform duration-700 hover:scale-[1.02]"
+  />
+</div>
+
         </div>
       </section>
 

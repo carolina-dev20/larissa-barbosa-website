@@ -125,8 +125,8 @@ export default function Home() {
             <em className="font-normal text-[#e3c2c0]">Revele sua essência.</em>
           </h1>
           <p className="mb-7 max-w-[440px] text-xs leading-7 text-white/80 md:text-sm">
-            Maquiagem e sobrancelhas pensadas para valorizar o que faz você única.
-          </p>
+Maquiagem profissional para noivas, eventos e produções, e design de
+ sobrancelhas personalizado em Guarulhos.          </p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href="#servicos" className="button button-light">
               Descubra os serviços <ArrowDownRight size={17} />

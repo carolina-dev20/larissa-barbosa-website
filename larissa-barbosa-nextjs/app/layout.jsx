@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 import ScrollReveal from "../components/ScrollReveal";
 
 export const metadata = {
-  title: "Larissa Barbosa | Maquiagem & Sobrancelhas",
-  description: "Maquiagem, design de sobrancelhas e cursos de beleza.",
+  title: "Larissa Barbosa | Maquiadora e Designer de Sobrancelhas em Guarulhos",
+  description: "Maquiagem profissional e design de sobrancelhas em Guarulhos. Realce sua beleza com atendimento personalizado. Agende seu horário com Larissa Barbosa.",
 };
 
 export default function RootLayout({ children }) {
