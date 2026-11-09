@@ -1,53 +1,73 @@
 
 import "./globals.css";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollReveal from "../components/ScrollReveal";
 
 export const metadata = {
-  metadataBase: new URL("https://makeuplalab.com.br"),
-
   title: {
-    default: "Larissa Barbosa | Maquiagem Profissional e Cursos em Guarulhos",
+    default: "Larissa Barbosa | Maquiagem e Cursos em Guarulhos",
     template: "%s | Larissa Barbosa",
   },
-
   description:
-    "Conheça o trabalho de Larissa Barbosa: maquiagem profissional e cursos de maquiagem em Guarulhos - Jardim São João. Confira os serviços, conheça os cursos e entre em contato.",
-
-  applicationName: "Larissa Barbosa",
-
+    "Maquiagem profissional, design de sobrancelhas e cursos de maquiagem em Guarulhos - SP. Conheça os serviços e agende seu horário.",
+  metadataBase: new URL("https://makeuplalab.com.br"),
   alternates: {
     canonical: "/",
   },
-
   openGraph: {
-    title: "Larissa Barbosa | Maquiagem Profissional e Cursos em Guarulhos - Jardim São João",
+    title: "Larissa Barbosa | Maquiagem e Cursos",
     description:
-      "Maquiagem profissional e cursos para quem deseja aprender e se desenvolver na área da beleza em Guarulhos.",
+      "Maquiagem profissional e cursos de maquiagem em Guarulhos - SP.",
     url: "https://makeuplalab.com.br",
-    siteName: "Larissa Barbosa",
+    siteName: "Makeup Lalab",
     locale: "pt_BR",
     type: "website",
   },
+};
 
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "@id": "https://makeuplalab.com.br/#business",
+  name: "Larissa Barbosa",
+  alternateName: "Makeup Lalab",
+  url: "https://makeuplalab.com.br",
+  description:
+    "Maquiagem profissional, design de sobrancelhas e cursos de maquiagem em Guarulhos, São Paulo. Atendimento presencial com horário marcado.",
+  telephone: "+5511957037051",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Avenida Riachuelo, 461",
+    addressLocality: "Guarulhos",
+    addressRegion: "SP",
+    postalCode: "07151-080",
+    addressCountry: "BR",
   },
+  areaServed: {
+    "@type": "City",
+    name: "Guarulhos",
+  },
+  sameAs: ["https://www.instagram.com/makeuplalab/"],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+
         <ScrollReveal />
         <Header />
+
         <main>{children}</main>
+
         <Footer />
       </body>
     </html>
