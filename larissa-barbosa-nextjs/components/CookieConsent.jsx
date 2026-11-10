@@ -7,13 +7,20 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const [customizing, setCustomizing] = useState(false);
   const [analytics, setAnalytics] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("makeuplalab-cookie-consent");
+    try {
+      const consent = localStorage.getItem("makeuplalab-cookie-consent");
 
-    if (!consent) {
+      if (!consent) {
+        setVisible(true);
+      }
+    } catch (error) {
       setVisible(true);
     }
+
+    setReady(true);
   }, []);
 
   function saveConsent(analyticsAllowed) {
@@ -23,90 +30,96 @@ export default function CookieConsent() {
       date: new Date().toISOString(),
     };
 
-    localStorage.setItem(
-      "makeuplalab-cookie-consent",
-      JSON.stringify(consent)
-    );
+    try {
+      localStorage.setItem(
+        "makeuplalab-cookie-consent",
+        JSON.stringify(consent)
+      );
+    } catch (error) {
+      console.error("Não foi possível salvar as preferências.", error);
+    }
 
     setVisible(false);
-
-    // A integração do Google Analytics será adicionada
-    // depois que configurarmos o consentimento.
   }
 
-  if (!visible) return null;
+  if (!ready || !visible) return null;
 
   return (
     <div style={styles.overlay}>
-      <section style={styles.banner}>
-        <div style={styles.content}>
-          <span style={styles.label}>SUA PRIVACIDADE</span>
+      <section
+        style={styles.banner}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cookie-title"
+      >
+        <span style={styles.label}>SUA PRIVACIDADE</span>
 
-          <h2 style={styles.title}>Sua experiência importa para nós.</h2>
+        <h2 id="cookie-title" style={styles.title}>
+          Sua experiência importa para nós.
+        </h2>
 
-          <p style={styles.description}>
-            Utilizamos cookies necessários para o funcionamento do site.
-            Com sua autorização, também poderemos utilizar cookies analíticos
-            para entender como os visitantes navegam e melhorar sua experiência.
-          </p>
+        <p style={styles.description}>
+          Utilizamos cookies necessários para o funcionamento do site.
+          Com sua autorização, também poderemos utilizar cookies analíticos
+          para entender como os visitantes navegam e melhorar sua experiência.
+        </p>
 
-          {customizing && (
-            <div style={styles.preferences}>
-              <div style={styles.preferenceRow}>
-                <div>
-                  <strong>Cookies necessários</strong>
-                  <p>Essenciais para o funcionamento do site.</p>
-                </div>
-                <span style={styles.alwaysOn}>Sempre ativos</span>
+        {customizing && (
+          <div style={styles.preferences}>
+            <div style={styles.preferenceRow}>
+              <div>
+                <strong>Cookies necessários</strong>
+                <p>Essenciais para o funcionamento do site.</p>
               </div>
-
-              <div style={styles.preferenceRow}>
-                <div>
-                  <strong>Cookies analíticos</strong>
-                  <p>Permitem analisar visitas e interações no site.</p>
-                </div>
-
-                <input
-                  type="checkbox"
-                  checked={analytics}
-                  onChange={(event) => setAnalytics(event.target.checked)}
-                  aria-label="Permitir cookies analíticos"
-                />
-              </div>
+              <span style={styles.alwaysOn}>Sempre ativos</span>
             </div>
-          )}
 
-          <div style={styles.actions}>
+            <div style={styles.preferenceRow}>
+              <div>
+                <strong>Cookies analíticos</strong>
+                <p>Permitem analisar visitas e interações no site.</p>
+              </div>
+
+              <input
+                type="checkbox"
+                checked={analytics}
+                onChange={(event) => setAnalytics(event.target.checked)}
+                aria-label="Permitir cookies analíticos"
+              />
+            </div>
+          </div>
+        )}
+
+        <div style={styles.actions}>
+          <button
+            style={styles.secondaryButton}
+            onClick={() => saveConsent(false)}
+          >
+            Rejeitar opcionais
+          </button>
+
+          {customizing ? (
             <button
               style={styles.secondaryButton}
-              onClick={() => saveConsent(false)}
+              onClick={() => saveConsent(analytics)}
             >
-              Rejeitar opcionais
+              Salvar preferências
             </button>
-
-            {customizing ? (
-              <button
-                style={styles.secondaryButton}
-                onClick={() => saveConsent(analytics)}
-              >
-                Salvar preferências
-              </button>
-            ) : (
-              <button
-                style={styles.secondaryButton}
-                onClick={() => setCustomizing(true)}
-              >
-                Personalizar
-              </button>
-            )}
-
+          ) : (
             <button
-              style={styles.primaryButton}
-              onClick={() => saveConsent(true)}
+              style={styles.secondaryButton}
+              onClick={() => setCustomizing(true)}
             >
-              Aceitar todos
+              Personalizar
             </button>
-          </div>
+          )}
+
+          <button
+            style={styles.primaryButton}
+            onClick={() => saveConsent(true)}
+          >
+            Aceitar todos
+          </button>
         </div>
       </section>
     </div>
@@ -117,12 +130,12 @@ const styles = {
   overlay: {
     position: "fixed",
     inset: 0,
-    zIndex: 9999,
+    zIndex: 99999,
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
     padding: "20px",
-    background: "rgba(0,0,0,0.25)",
+    background: "rgba(0,0,0,0.35)",
   },
   banner: {
     width: "100%",
@@ -132,10 +145,6 @@ const styles = {
     padding: "28px",
     borderRadius: "12px",
     boxShadow: "0 8px 35px rgba(0,0,0,0.15)",
-  },
-  content: {
-    maxWidth: "760px",
-    margin: "0 auto",
   },
   label: {
     fontSize: "10px",

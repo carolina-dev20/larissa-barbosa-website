@@ -99,53 +99,88 @@ export default function Home() {
   return (
     <>
       {/* Abertura original: vídeo preservado */}
-      <section className="relative flex min-h-[calc(100svh-78px)] items-center justify-center overflow-hidden bg-[#292322] text-white">
-        <video
-          className="absolute inset-0 h-full w-full object-cover object-center"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label="Vídeo de abertura da Larissa Barbosa"
-        >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-        </video>
-        <div className="hero-veil absolute inset-0" />
-        <div className="absolute left-[5%] right-[5%] top-7 flex justify-between text-[8px] tracking-[.18em] md:text-[9px]">
-          <span>BEAUTY · BROWS · EDUCATION</span>
-          <span>GUARULHOS, SP</span>
-        </div>
-        <div className="reveal relative z-10 mx-auto flex w-[min(92%,900px)] flex-col items-center px-4 py-24 text-center">
-          <span className="flex items-center justify-center gap-3 text-[8px] tracking-[.2em] text-[#f1dada] md:text-[9px]">
-            <span className="h-px w-7 bg-blush" /> BELEZA QUE REVELA QUEM VOCÊ É
-          </span>
-          <h1 className="serif my-6 text-[clamp(44px,8vw,100px)] leading-[1.04] tracking-[-.045em]">
-            Realce sua beleza.<br />
-            <em className="font-normal text-[#e3c2c0]">Revele sua essência.</em>
-          </h1>
-          <p className="mb-7 max-w-[440px] text-xs leading-7 text-white/80 md:text-sm">
-Maquiagem profissional para noivas, eventos e produções, e design de
- sobrancelhas personalizado em Guarulhos.          </p>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#servicos" className="button button-light">
-              Descubra os serviços <ArrowDownRight size={17} />
-            </a>
-            <a
-              href={contactLink("Olá, Larissa! Gostaria de entrar em contato para saber mais sobre seus serviços e agendar um horário.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-[58px] items-center justify-center gap-3 border border-white/75 px-6 py-4 text-[10px] uppercase tracking-[.12em] text-white transition hover:bg-white hover:text-[#292322]"
-            >
-              Entrar em contato <ArrowRight size={17} />
-            </a>
-          </div>
-        </div>
-        <div className="absolute bottom-5 left-[5%] right-[5%] flex justify-between text-[7px] tracking-[.15em] text-white/75 md:bottom-7 md:text-[9px]">
-          <span>01 / BELEZA COM INTENÇÃO</span>
-          <a href="#sobre">ROLE PARA EXPLORAR ↓</a>
-        </div>
-      </section>
+      
+      
+{/* HERO — versão otimizada para conversão */}
+<section className="relative flex min-h-[calc(100svh-78px)] items-center justify-center overflow-hidden bg-[#292322] text-white">
+
+  <video
+    className="absolute inset-0 h-full w-full object-cover object-center"
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="metadata"
+    aria-label="Vídeo de abertura da Larissa Barbosa"
+  >
+    <source src="/videos/hero-video.mp4" type="video/mp4" />
+  </video>
+
+  <div className="hero-veil absolute inset-0" />
+
+  <div className="absolute left-[5%] right-[5%] top-7 flex justify-between text-[8px] tracking-[.18em] md:text-[9px]">
+    <span>BEAUTY · BROWS · EDUCATION</span>
+    <span>GUARULHOS, SP</span>
+  </div>
+
+  <div className="reveal relative z-10 mx-auto flex w-[min(92%,900px)] flex-col items-center px-4 py-24 text-center">
+
+    <span className="flex items-center justify-center gap-3 text-[8px] tracking-[.2em] text-[#f1dada] md:text-[9px]">
+      <span className="h-px w-7 bg-blush" />
+      BELEZA QUE REVELA QUEM VOCÊ É
+    </span>
+
+    <h1 className="serif my-6 text-[clamp(42px,8vw,100px)] leading-[1.04] tracking-[-.045em]">
+      Realce sua beleza.
+      <br />
+      <em className="font-normal text-[#e3c2c0]">
+        Revele sua essência.
+      </em>
+    </h1>
+
+    <p className="mb-8 max-w-[510px] text-sm leading-7 text-white/90 md:text-base">
+      Maquiagem para noivas, eventos e produções, além de design de
+      sobrancelhas personalizado, em Guarulhos.
+    </p>
+
+    <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+
+      <a
+        href={contactLink("Olá, Larissa! Gostaria de agendar meu horário. Pode me passar as informações sobre os serviços e disponibilidade?")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="button button-light min-h-[58px] w-full justify-center px-7 text-center sm:w-auto"
+      >
+        Agendar meu horário no WhatsApp
+        <ArrowRight size={17} />
+      </a>
+
+      <a
+        href="#servicos"
+        className="inline-flex min-h-[54px] w-full items-center justify-center gap-2 border border-white/60 px-7 py-4 text-[10px] uppercase tracking-[.12em] text-white transition hover:bg-white hover:text-[#292322] sm:w-auto"
+      >
+        Ver serviços
+        <ArrowDownRight size={16} />
+      </a>
+
+    </div>
+
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[9px] tracking-[.08em] text-white/85 md:text-[10px]">
+      <span>+10 ANOS DE EXPERIÊNCIA</span>
+      <span className="text-[#d6b4b2]">·</span>
+      <span>ATENDIMENTO PERSONALIZADO</span>
+      <span className="text-[#d6b4b2]">·</span>
+      <span>GUARULHOS, SP</span>
+    </div>
+
+  </div>
+
+  <div className="absolute bottom-5 left-[5%] text-[7px] tracking-[.15em] text-white/75 md:bottom-7 md:text-[9px]">
+    01 / BELEZA COM INTENÇÃO
+  </div>
+
+</section>
+
 
       {/* Sobre — composição editorial; fotografia original preservada */}
       <section id="sobre" className="about-minimal">
