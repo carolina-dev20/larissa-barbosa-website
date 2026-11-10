@@ -415,3 +415,35 @@ html.reveal-ready [data-reveal].is-visible {
     line-height: 1.85;
   }
 }
+
+
+
+/* Headline Reveal — entrada elegante do título principal */
+
+.headline-reveal {
+  animation: headlineReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.15s;
+}
+
+@keyframes headlineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headline-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

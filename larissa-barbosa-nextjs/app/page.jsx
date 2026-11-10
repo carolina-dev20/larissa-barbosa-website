@@ -130,7 +130,7 @@ export default function Home() {
       BELEZA QUE REVELA QUEM VOCÊ É
     </span>
 
-    <h1 className="serif my-6 text-[clamp(42px,8vw,100px)] leading-[1.04] tracking-[-.045em]">
+<h1 className="headline-reveal serif my-6 text-[clamp(42px,8vw,100px)] leading-[1.04] tracking-[-.045em]">
       Realce sua beleza.
       <br />
       <em className="font-normal text-[#e3c2c0]">
@@ -367,13 +367,6 @@ export default function Home() {
 
         </div>
       </section>
-
-
-
-
-
-
-
 
 
 
