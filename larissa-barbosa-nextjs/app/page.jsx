@@ -251,6 +251,133 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* DEPOIMENTOS */}
+      <section
+        id="depoimentos"
+        className="section-pad bg-[#F8F6F3]"
+      >
+        <div className="mx-auto max-w-6xl">
+
+          <div data-reveal className="mb-12 max-w-2xl">
+            <span className="eyebrow">
+              CARINHO QUE VEM DAS CLIENTES
+            </span>
+
+            <h2 className="section-title mt-4">
+              A beleza de cada <em>experiência.</em>
+            </h2>
+
+            <p className="mt-5 max-w-xl text-sm leading-7 text-muted">
+              Cada produção é especial. E saber que minhas clientes
+              se sentiram lindas, confiantes e felizes é o que torna
+              meu trabalho ainda mais significativo.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+
+            <article
+              data-reveal
+              className="flex flex-col justify-between border border-[#E5DAD5] bg-white p-7 md:p-9"
+            >
+              <div>
+                <span className="serif text-5xl text-rose">“</span>
+                <p className="mt-3 text-sm leading-7 text-[#625B58]">
+                  Eu amei! Ficou muito linda e muitas pessoas elogiaram.
+                  Gostei bastante. Com toda certeza, nos próximos eventos
+                  que tiver, vou fazer com você.
+                </p>
+              </div>
+              <span className="mt-7 border-t border-[#eee5e0] pt-4 text-[9px] uppercase tracking-[.16em] text-muted">
+                Cliente · Maquiagem para evento
+              </span>
+            </article>
+
+            <article
+              data-reveal
+              className="flex flex-col justify-between border border-[#E5DAD5] bg-white p-7 md:p-9"
+            >
+              <div>
+                <span className="serif text-5xl text-rose">“</span>
+                <p className="mt-3 text-sm leading-7 text-[#625B58]">
+                  Eu amei de verdade! Ficou super linda, todo mundo elogiou
+                  e durou muito. Só saiu quando eu cheguei em casa,
+                  estava perfeita!
+                </p>
+              </div>
+              <span className="mt-7 border-t border-[#eee5e0] pt-4 text-[9px] uppercase tracking-[.16em] text-muted">
+                Cliente · Durabilidade da maquiagem
+              </span>
+            </article>
+
+            <article
+              data-reveal
+              className="flex flex-col justify-between border border-[#E5DAD5] bg-white p-7 md:p-9"
+            >
+              <div>
+                <span className="serif text-5xl text-rose">“</span>
+                <p className="mt-3 text-sm leading-7 text-[#625B58]">
+                  Eu amei, você arrasa. Confio de olhos fechados no seu
+                  trabalho. Muito obrigada! A próxima pode ter certeza
+                  que vou te chamar!
+                </p>
+              </div>
+              <span className="mt-7 border-t border-[#eee5e0] pt-4 text-[9px] uppercase tracking-[.16em] text-muted">
+                Cliente · Confiança e satisfação
+              </span>
+            </article>
+
+            <article
+              data-reveal
+              className="flex flex-col justify-between border border-[#E5DAD5] bg-white p-7 md:p-9"
+            >
+              <div>
+                <span className="serif text-5xl text-rose">“</span>
+                <p className="mt-3 text-sm leading-7 text-[#625B58]">
+                  Muito obrigada pelas maquiagens de ontem! Ficaram
+                  perfeitas! Sem falar na duração delas, que durou
+                  até o fim da festa intacta! Você arrasa!
+                </p>
+              </div>
+              <span className="mt-7 border-t border-[#eee5e0] pt-4 text-[9px] uppercase tracking-[.16em] text-muted">
+                Cliente · Maquiagem para evento
+              </span>
+            </article>
+
+          </div>
+
+          <div data-reveal className="mt-12 text-center">
+            <p className="serif text-2xl text-[#292322] md:text-3xl">
+              Sua próxima experiência pode começar aqui.
+            </p>
+
+            <a
+              href={contactLink(
+                "Olá, Larissa! Vi os depoimentos no seu site e gostaria de saber mais sobre seus serviços."
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button-dark mt-6"
+            >
+              Agendar meu horário
+              <ArrowRight size={16} />
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
       <section className="bg-ink px-6 py-20 text-center text-cream md:py-24">
         <span data-reveal className="serif text-[80px] leading-none text-rose">“</span>
         <p data-reveal className="serif my-5 text-[clamp(30px,4.5vw,55px)] leading-snug">
